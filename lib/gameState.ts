@@ -1,4 +1,4 @@
-import { GameStatus } from '../app/generated/prisma/enums';
+
 import {prisma} from './prisma';
 
 export async function getOrCreateGame(){
@@ -70,7 +70,7 @@ export async function startGame(gameId : string) {
     return await prisma.game.update({
         where : {id : gameId},
         data : {
-            status : GameStatus.ACTIVE,
+            status : "ACTIVE",
             currentRound : 0,
             players : {
                 updateMany : {
@@ -90,6 +90,6 @@ export async function startGame(gameId : string) {
 export async function finishGame(gameId: string) {
   return await prisma.game.update({
     where: { id: gameId },
-    data: { status: GameStatus.FINISHED }
+    data: { status: "FINISHED" }
   });
 }
