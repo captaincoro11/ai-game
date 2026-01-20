@@ -1,4 +1,4 @@
-import { GameStatus } from '@/app/generated/prisma/enums';
+import { GameStatus } from '../app/generated/prisma/enums';
 import {prisma} from './prisma';
 
 export async function getOrCreateGame(){
