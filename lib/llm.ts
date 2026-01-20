@@ -1,4 +1,4 @@
-import { GameWord } from '@/types/game';
+import { GameWord } from '../types/game';
 import {GoogleGenAI} from '@google/genai';
 export async function generateFrenchWord(difficulty: string = 'medium'): Promise<GameWord> {
   const ai = new GoogleGenAI({});

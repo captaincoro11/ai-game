@@ -1,5 +1,5 @@
-import { getOrCreateGame, updatePlayerScore } from "@/lib/gameState";
-import { calculateSimilarity, getPointsFromSimilarity } from "@/lib/scoring";
+import { getOrCreateGame, updatePlayerScore } from "../../../../lib/gameState";
+import { calculateSimilarity, getPointsFromSimilarity } from "../../../../lib/scoring";
 import { NextResponse } from "next/server";
 
 export async function POST(req : Request) {

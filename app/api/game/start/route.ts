@@ -1,4 +1,4 @@
-import { getOrCreateGame, startGame } from "@/lib/gameState";
+import { getOrCreateGame, startGame } from "../../../../lib/gameState";
 import { NextResponse } from "next/server";
 
 export async function POST() {

@@ -1,5 +1,5 @@
-import { finishGame, getOrCreateGame, updateGameWord } from "@/lib/gameState";
-import { generateFrenchWord } from "@/lib/llm";
+import { finishGame, getOrCreateGame, updateGameWord } from "../../../../lib/gameState";
+import { generateFrenchWord } from "../../../../lib/llm";
 import { NextResponse } from "next/server";
 
 export async function POST(req : Request){
