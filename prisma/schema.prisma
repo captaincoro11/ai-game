@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model Game {
+    id String @id @default(cuid())
+    status GameStatus @default(WAITING)
+    currentRound Int @default(0)
+    maxRounds Int @default(10)
+    adminId String
+    adminName String
+    currentWordFrench String?
+    currentWordEnglish String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    players Player[]
+
+    @@map("games")
+}
+
+model Player {
+    id String @id @default(cuid())
+    name String
+    score Float @default(0)
+    position Int
+    gameId String
+    game Game @relation(fields: [gameId] , references: [id], onDelete: Cascade)
+    createdAt DateTime @default(now())
+    @@unique([gameId , position])
+    @@map("players")
+}
+
+enum GameStatus {
+    WAITING
+    ACTIVE 
+    FINISHED
+}
